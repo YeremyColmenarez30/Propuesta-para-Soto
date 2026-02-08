@@ -1,0 +1,107 @@
+/* Variables de color para fácil mantenimiento */
+:root {
+    --primary-love: #ff4d6d;
+    --secondary-love: #ff85a1;
+    --bg-color: #fff0f3;
+    --text-color: #590d22;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Evita scrolls si el botón crece mucho */
+}
+
+.app-container {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.heart-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: pulse 1.5s infinite;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 200px; /* Un poco más de espacio para el botón gigante */
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    /* La transición es clave para que el crecimiento se vea suave */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+    outline: none;
+}
+
+.btn-confirm {
+    background-color: var(--primary-love);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    z-index: 10;
+    transform-origin: center; /* Crece parejo hacia todos lados */
+}
+
+.btn-reject {
+    background-color: #e0e0e0;
+    color: #757575;
+    z-index: 5;
+}
+
+.btn-reject:hover {
+    background-color: #d6d6d6;
+}
+
+/* Animación de latido */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Estilo extra para cuando gane el SÍ */
+h1.success {
+    color: var(--primary-love);
+    animation: pulse 0.5s ease-in-out;
+}
